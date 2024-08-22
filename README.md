@@ -15,6 +15,7 @@ Follow these steps to install and run the project locally with docker.
 ### Backend Installation
 
 Navigate to the backend directory:
+
 ```bash
     cd Metricalo-product-management
     cd backend
@@ -41,16 +42,23 @@ Install the dependencies
 Generate the application key, Migration, Optimization cache clear:
 
 ```bash
-    docker-compose exec app bash
-      php artisan key:generate
-      php artisan optimize:clear
-      php artisan migrate
-      ||
-      docker-compose exec app
+      docker-compose exec app bash
       php artisan key:generate
       php artisan optimize:clear
       php artisan migrate
 ```
+
+For Product Import Csv Need to run queue:work
+
+```bash
+      docker-compose exec app bash
+      php artisan queue:work
+```
+
+Product Csv Header: Name,Price,Description,Image
+Customer Csv Header: first_name,last_name,email,phone,address
+Order Csv Header: order_id,customer_id,total_amount,status,product_id,quantity,price
+
 For Sanctum----->
 APP_URL=http://localhost:8000
 FRONTEND_URL=http://localhost:3000
@@ -77,7 +85,6 @@ Build and start the Docker containers:
 ```
 
 The frontend application should now be running at http://localhost:3000/.
-
 
 For any inquiries or issues, please contact:
 
