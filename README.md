@@ -1,6 +1,10 @@
 # Metricalo Product Management Task
 
 **Metricalo-product-management-task** is a full-stack application for managing products, customers, and orders, with authentication access control. The backend is built using the PHP Laravel framework, and the frontend uses Vue.js with Pinia for state management and Vue Router for routing.
+For this task, I utilized job queues to handle CSV file imports for order and product management efficiently. This approach ensures that large files are processed asynchronously, improving performance and user experience. For managing customer data, I implemented traditional chunk operations to process data in manageable segments, which helps to reduce memory usage.
+
+On the frontend, I employed Vue.js for the user interface, using Pinia for state management. API calls are handled with axios, ensuring smooth communication between the client and server.
+
 
 ## Installation
 
