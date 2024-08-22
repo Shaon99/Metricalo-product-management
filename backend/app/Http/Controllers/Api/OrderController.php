@@ -3,15 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
+use App\Jobs\OrderCsvImport;
 use App\Models\Order;
 use App\Models\OrderItem;
-use App\Models\Product;
 use App\Services\OrderService;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Response;
 
 class OrderController extends Controller
 {
@@ -125,97 +123,10 @@ class OrderController extends Controller
 
         if ($request->hasFile('file')) {
             $file = $request->file('file');
-            $csvFilePath = $file->getPathname();
-            $csv = fopen($csvFilePath, 'r');
-
-            $batchSize = 100;
-            $orders = [];
-            $orderItems = [];
-            $orderItemCount = [];
-            $statusMapping = [
-                'Processing' => 0,
-                'Delivered' => 1,
-            ];
-
-            $rowCount = 0;
-
-            // Read CSV file line by line
-            while (($row = fgetcsv($csv)) !== false) {
-                if ($rowCount === 0) {
-                    $rowCount++;
-                    continue; // Skip the header row
-                }
-
-                $orderId = $row[0];
-                $customerId = $row[1];
-                $totalAmount = $row[2];
-                $status = $statusMapping[$row[3]] ?? null;
-                $productId = $row[4];
-                $quantity = $row[5];
-                $price = $row[6];
-
-                if ($status === null) {
-                    fclose($csv);
-                    return response()->json(['message' => 'Invalid status value in CSV file.'], 400);
-                }
-
-                // Ensure quantity is an integer
-                if (!is_numeric($quantity) || (int)$quantity != $quantity) {
-                    fclose($csv);
-                    return response()->json(['message' => "Invalid quantity value '{$quantity}' in CSV file."], 400);
-                }
-
-                // Insert or update orders
-                if (!isset($orderItemCount[$orderId])) {
-                    $orders[] = [
-                        'id' => $orderId,
-                        'customer_id' => $customerId,
-                        'total_amount' => $totalAmount,
-                        'status' => $status,
-                        'created_at' => now(),
-                        'updated_at' => now(),
-                    ];
-                    $orderItemCount[$orderId] = 0;
-                }
-
-                // Add order item to orderItems array
-                $orderItems[] = [
-                    'order_id' => $orderId,
-                    'product_id' => $productId,
-                    'quantity' => (int)$quantity,
-                    'price' => $price,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ];
-                $orderItemCount[$orderId]++;
-
-                // Insert data in batches
-                if (count($orders) >= $batchSize) {
-                    // Insert orders
-                    Order::upsert($orders, ['id'], ['customer_id', 'total_amount', 'status', 'updated_at']);
-                    $orders = [];
-                }
-
-                if (count($orderItems) >= $batchSize) {
-                    // Insert order items
-                    OrderItem::insert($orderItems);
-                    $orderItems = [];
-                }
-
-                $rowCount++;
-            }
-
-            // Insert any remaining orders and order items
-            if (!empty($orders)) {
-                Order::upsert($orders, ['id'], ['customer_id', 'total_amount', 'status', 'updated_at']);
-            }
-            if (!empty($orderItems)) {
-                OrderItem::insert($orderItems);
-            }
-
-            fclose($csv);
-
-            return response()->json(['message' => 'Orders and order items imported successfully!'], 200);
+            $storedFile = $file->store('csv', 'public');
+            //order import with jobs and queue
+            dispatch(new OrderCsvImport(storage_path('app/public/' . $storedFile)));
+            return response()->json(['message' => 'Order CSV is being processed...!'], 200);
         } else {
             return response()->json(['error' => 'No CSV file uploaded.'], 400);
         }
