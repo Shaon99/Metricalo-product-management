@@ -48,7 +48,7 @@ Generate the application key, Migration, Optimization cache clear:
       php artisan migrate
 ```
 
-For Product Import Csv Need to run queue:work
+For Product,Order Import Csv Need To Run php artisan queue:work
 
 ```bash
       docker-compose exec app bash
