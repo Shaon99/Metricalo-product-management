@@ -72,7 +72,7 @@ SANCTUM_STATEFUL_DOMAINS=localhost:3000
 --------------------->>>
 The backend application should now be running at http://localhost:8000/.
 
-phpMyAdmin can be accessed at http://localhost:8080/.
+phpMyAdmin can be accessed at http://localhost:8090/.
 
 ### Frontend Installation
 
