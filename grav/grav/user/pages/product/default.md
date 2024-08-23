@@ -10,8 +10,8 @@ title: 'Product Details'
     <span class="mx-2">Loading! Please wait...</span>
   </div>
       <aside class="col-lg-6">
-        <div class="border rounded-4 mb-3 d-flex justify-content-center">
-            <img id="product-img" style="max-width: 100%; max-height: 80vh; object-fit:cover margin: auto;" class="rounded-4 fit" src=""  />
+        <div class="d-flex mb-3 justify-content-center">
+            <img id="product-img" style="object-fit:cover max-height:450px margin: auto;" class="rounded-4 img-fluid fit" src=""  />
         </div>
       </aside>
       <main class="col-lg-6">
@@ -44,7 +44,7 @@ title: 'Product Details'
                 .then(response => response.json())
                 .then(product => {
                     loading.style.display = 'none';
-                    document.getElementById('backBtn')style.display = 'none';
+                    document.getElementById('backBtn').style.display = 'none';
                     document.getElementById('product-title').innerText = product.name;
                     document.getElementById('description').innerText = product.description;
                     document.getElementById('price').innerText = `$${product.price}`;
