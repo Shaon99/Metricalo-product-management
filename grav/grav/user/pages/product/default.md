@@ -22,7 +22,7 @@ title: "Product Details"
           <h4 class="title text-dark" id="product-title">
           </h4>
           <div class="d-flex flex-row my-3">
-                <span class="h2" id="price"></span>
+                <span class="h4" id="price"></span>
           </div>
           <div class="my-3">
           <p id="description">
