@@ -5,6 +5,8 @@ For this task, utilized job queues to handle CSV file imports for orders and pro
 
 On the frontend, employed Vue.js for the user interface, using Pinia for state management. API calls are handled with axios, ensuring smooth communication between the client and server.
 
+Successfully integrated product data retrieval from a Laravel API with Grav CMS, facilitating dynamic content management and presentation.
+
 ## Installation
 
 Follow these steps to install and run the project locally with docker.
@@ -88,6 +90,24 @@ Build and start the Docker containers:
 ```
 
 The frontend application should now be running at http://localhost:3000/.
+
+
+### Frontend GRAV CMS Installation
+
+Navigate to the grav directory:
+
+```bash
+    cd metricalo-product-management
+    cd grav
+```
+
+Build and start the Docker containers:
+
+```bash
+    docker-compose up -d --build
+```
+The Grav Cms frontend application should now be running at http://localhost:8080/. (you can change port on compose.yml file if any mismatch)
+
 
 For any inquiries or issues, please contact:
 
