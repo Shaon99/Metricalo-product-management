@@ -21,7 +21,7 @@ title: "Product Details"
         <div class="ps-lg-3">
           <h4 class="title text-dark" id="product-title">
           </h4>
-          <div class="d-flex flex-row my-3">
+          <div class="d-flex flex-row my-2">
                 <span class="h4" id="price"></span>
           </div>
           <div class="my-3">
