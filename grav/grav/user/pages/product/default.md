@@ -1,5 +1,5 @@
 ---
-title: 'Product Details'
+title: "Product Details"
 ---
 
   <div class="row gx-5 py-4">
@@ -10,8 +10,11 @@ title: 'Product Details'
     <span class="mx-2">Loading! Please wait...</span>
   </div>
       <aside class="col-lg-6">
-        <div class="d-flex mb-3 justify-content-center">
-            <img id="product-img" style="object-fit:cover max-height:450px margin: auto;" class="rounded-4 img-fluid fit" src=""  />
+        <div class="mb-3 d-flex justify-content-center">
+           <img id="product-img" 
+            src="" 
+            class="rounded-4 fit mx-auto"
+            style="max-width: 100%; max-height: 80vh; object-fit: cover; display: block;" />
         </div>
       </aside>
       <main class="col-lg-6">
@@ -26,11 +29,12 @@ title: 'Product Details'
           </p>
           <div>
           <div class="py-3">
-            <a href="/" class="btn btn-primary rounded d-none" id="backBtn">Back To Home</a>
+            <a href="/" class="btn btn-primary rounded" id="backBtn">Back To Home</a>
           </div>
         </div>
       </main>
     </div>
+
   </div>
 
 <script>
@@ -44,7 +48,6 @@ title: 'Product Details'
                 .then(response => response.json())
                 .then(product => {
                     loading.style.display = 'none';
-                    document.getElementById('backBtn').style.display = 'none';
                     document.getElementById('product-title').innerText = product.name;
                     document.getElementById('description').innerText = product.description;
                     document.getElementById('price').innerText = `$${product.price}`;
