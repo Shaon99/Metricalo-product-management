@@ -14,7 +14,7 @@ title: "Product Details"
            <img id="product-img" 
             src="" 
             class="rounded-4 fit mx-auto"
-            style="max-width: 100%; max-height: 80vh; object-fit: cover; display: block;" />
+            style="max-width: 100%; max-height: 100vh; object-fit: cover; display: block;" />
         </div>
       </aside>
       <main class="col-lg-6">
