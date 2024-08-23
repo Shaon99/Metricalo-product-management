@@ -106,6 +106,8 @@ Build and start the Docker containers:
 ```bash
     docker-compose up -d --build
 ```
+create a backup directory on grav/grav directory
+
 The Grav Cms frontend application should now be running at http://localhost:8080/. (you can change port on compose.yml file if any mismatch)
 
 
