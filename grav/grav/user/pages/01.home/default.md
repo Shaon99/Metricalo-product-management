@@ -13,7 +13,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        fetch('http://localhost:8000/api/products')
+        fetch('http://localhost:8000/api/all-products')
             .then(response => response.json())
             .then(products => {
                 const productGrid = document.getElementById('product-grid');
