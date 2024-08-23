@@ -53,9 +53,9 @@ footer{
 }
 
 .card .main-images img{
-    max-height: 220px;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 15px!important;
   }
 
   .card .details .p_name{
