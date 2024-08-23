@@ -58,3 +58,6 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+Route::get('/products', [ProductController::class, 'allProducts']);
+Route::get('/product/{id}', [ProductController::class, 'productDetails']);

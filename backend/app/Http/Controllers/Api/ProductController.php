@@ -16,7 +16,6 @@ class ProductController extends Controller
         $products = Product::latest()->paginate(10);
         return response()->json($products);
     }
-
     public function store(Request $request)
     {
         try {
@@ -191,5 +190,18 @@ class ProductController extends Controller
 
             fclose($handle);
         }, 200, $headers);
+    }
+
+    public function allProducts(){
+        $products = Product::all();
+        return response()->json($products);
+    }
+
+    public function productDetails($id){
+        $products = Product::find($id);
+        if($products){
+            return response()->json($products);
+        }
+        return response()->json('products not found');
     }
 }
