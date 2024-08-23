@@ -1,0 +1,11 @@
+state: enabled
+email: admin@gmail.com
+fullname: 'Shaon Ahmed'
+title: Admin
+access:
+  admin:
+    login: true
+    super: true
+  site:
+    login: true
+hashed_password: $2y$10$CSw6n4AiZRPPqwtQsg97EetEk.S64OvTrs32Va26asskBS1HHorDS

@@ -1,0 +1,5 @@
+1724993755
+a:2:{s:7:"content";s:139:"<div class="product-details">
+    <h1 class="product-title">{{ page.title }}</h1>
+    <!-- Product details will be injected here -->
+</div>";s:12:"content_meta";N;}

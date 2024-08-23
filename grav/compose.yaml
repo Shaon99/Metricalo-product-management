@@ -1,0 +1,12 @@
+version: '3'
+services:
+  webserver:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./grav:/var/www/html
+    environment:
+      - PHP_MAX_EXECUTION_TIME=300
+    command: >
+      bash -c "apache2-foreground"

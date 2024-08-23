@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+
+:root{
+    --dark-color: #161616;
+}
+
+:root{
+    --body-font: 'Open Sans';
+    --h1-font-size: 1.5rem;
+}
+@media screen and (min-width: 768px){
+    :root{
+        --h1-font-size: 2rem;
+    }
+}
+
+/*-- BASE --*/
+*,::after,::before{
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: var(--h1-font-size);
+}
+
+/*-- PAGES --*/
+.title-shop{
+    position: relative;
+}
+.title-shop::after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 72px;
+    height: 2px;
+    background-color: var(--dark-color);
+}
+
+footer{
+  text-align: center;
+}
+
+.card{
+    position: relative;
+    width: 100%;
+    border-radius: 25px!important;
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    overflow: hidden;
+}
+
+.card .main-images img{
+    max-height: 220px;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .card .details .p_name{
+    font-size: 22px;
+    font-weight: 600;
+    color: #161616;
+    line-height:1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  .card .details p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #000;
+  }
+
+  .card .price .price_num{
+    font-size: 28px;
+    font-weight: 800;
+    color: #4e4848;
+    display:flex;
+    flex-direction:row-reverse
+  }
+
+  .card .button{
+    height: 50px;
+    width: 100%;
+    border-radius: 25px;
+    margin-top: 15px;
+    overflow: hidden;
+  }
+
+  .card .button button{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+
+  .card .button button:hover {
+    background: linear-gradient(45deg, #6610f2, #0d6efd);
+}

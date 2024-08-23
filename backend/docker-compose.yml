@@ -57,7 +57,7 @@ services:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: secret
     ports:
-      - '8080:80'
+      - '8090:80'
     depends_on:
       - db
     networks:

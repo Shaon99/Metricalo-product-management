@@ -1,0 +1,2 @@
+1724302705
+a:2:{i:0;s:40:"97d170e1550eee4afc0af065b78cda302a97674c";i:1;a:4:{i:0;s:7:"success";i:1;s:29:"PLUGIN_ADMIN.PAGE_ROUTE_FOUND";i:2;a:1:{i:0;a:6:{s:8:"item-key";s:6:"-root-";s:4:"icon";s:4:"root";s:5:"title";s:4:"Root";s:5:"route";a:2:{s:7:"display";s:12:"&lt;root&gt;";s:3:"raw";s:5:"_root";}s:8:"modified";i:1724302093;s:6:"extras";a:7:{s:8:"template";s:4:"root";s:5:"langs";a:0:{}s:9:"published";b:0;s:7:"visible";b:0;s:8:"routable";b:0;s:4:"tags";a:2:{i:0;s:4:"root";i:1;s:12:"non-routable";}s:7:"actions";a:1:{i:0;s:4:"edit";}}}}i:3;s:24:"/var/www/html/user/pages";}}
